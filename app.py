@@ -3,10 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO, emit, join_room
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_cors import CORS
-CORS(app)
+
 import datetime
 
 app = Flask(__name__)
+CORS(app, supports_credentials=True)
 app.config['SECRET_KEY'] = 'supersecretkey'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
